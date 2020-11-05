@@ -10,8 +10,17 @@ public class MemberVO {
 	private String tel;
 	private Date enterdate;
 	private String author;
+	private String img;
 	
 	public MemberVO() {
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	public String getId() {

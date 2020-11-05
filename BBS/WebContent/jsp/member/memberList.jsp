@@ -21,6 +21,7 @@
 				<th withd="150">전화번호</th>
 				<th withd="100">가입일자</th>
 				<th withd="100">권한</th>
+				<th withd="100">사진</th>
 			</tr>
 			<c:forEach var="member" items="${members }">
 				<tr>
@@ -30,6 +31,7 @@
 					<td>${member.tel }</td>
 					<td>${member.enterdate }</td>
 					<td>${member.author }</td>
+					<td><img src= "${pageContext.request.contextPath}/images/${member.img}" > </td>
 				</tr>
 
 			</c:forEach>

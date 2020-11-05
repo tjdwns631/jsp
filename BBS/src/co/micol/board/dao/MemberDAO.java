@@ -14,7 +14,7 @@ public class MemberDAO extends DAO {
 	private MemberVO vo;
 	private final String SELECT_ALL = "SELECT *FROM MEMBER";
 	private final String SELECT = "SELECT * FROM MEMBER WHERE ID=?";
-	private final String INSERT = "INSERT INTO MEMBER(ID,NAME,PASSWORD,ADDRESS,TEL,ENTERDATE)" + " VALUES(?,?,?,?,?,?)";
+	private final String INSERT = "INSERT INTO MEMBER(ID,NAME,PASSWORD,ADDRESS,TEL,ENTERDATE,IMG)" + " VALUES(?,?,?,?,?,?,?)";
 	private final String UPDATE = "UPDATE MEMBER SET NAME=?,PASSWORD=?,ADDRESS=?,TEL=? WHERE ID=?";
 	private final String DELETE = "DELETE FROM MEMEBER WHERE ID=?";
 
@@ -32,6 +32,7 @@ public class MemberDAO extends DAO {
 				vo.setTel(rs.getString("tel"));
 				vo.setEnterdate(rs.getDate("enterdate"));
 				vo.setAuthor(rs.getString("author"));
+				vo.setImg(rs.getString("img"));
 				list.add(vo);
 
 			}
@@ -79,6 +80,7 @@ public class MemberDAO extends DAO {
 			psmt.setString(4, vo.getAddress());
 			psmt.setString(5, vo.getTel());
 			psmt.setDate(6, vo.getEnterdate());
+			psmt.setString(7, vo.getImg());
 			n = psmt.executeUpdate();
 
 		} catch (SQLException e) {

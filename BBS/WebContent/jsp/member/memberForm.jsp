@@ -14,7 +14,7 @@
 		<h1>회 원 가 입</h1>
 	</div>
 	<div>
-		<form id="frm" name="frm" action="memberInsert.do" method="post">
+		<form id="frm" name="frm" action="memberInsert.do" method="post" enctype="multipart/form-data">
 			<table border="1">
 				<tr>
 					<th width="150">아 이 디</th>
@@ -22,7 +22,11 @@
 				</tr>
 				<tr>
 					<th width="150">패스워드</th>
-					<td width="500"><input type="password" id="pw" name="pw"></td>
+					<td width="500"><input type="password" id="password" name="password"></td>
+				</tr>
+				<tr>
+					<th width="150">사진</th>
+					<td ><input type="file" id="img" name="img"></td>
 				</tr>
 				<tr>
 					<th width="150">이름</th>

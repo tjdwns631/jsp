@@ -1,8 +1,10 @@
 package co.micol.board.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 
 public class DAO {
@@ -15,10 +17,14 @@ public class DAO {
 	
 	public DAO() {
 		try {
-			Class.forName(driver);
-			conn = DriverManager.getConnection(url,user,password);
+//			Class.forName(driver);
+//			conn = DriverManager.getConnection(url,user,password);
+			Context initContext = new InitialContext();
+			Context envContext  = (Context)initContext.lookup("java:/comp/env");
+			DataSource ds = (DataSource)envContext.lookup("jdbc/myoracle");
+			conn = ds.getConnection();
 			
-		}catch(ClassNotFoundException | SQLException e) {
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
