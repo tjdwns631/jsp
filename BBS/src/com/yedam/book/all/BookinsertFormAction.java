@@ -1,16 +1,16 @@
-package co.micol.board.command;
+package com.yedam.book.all;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.micol.board.common.Action;
 
-public class MemberForm implements Action {
+public class BookinsertFormAction implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// 회원가입 폼 호출
-		return "jsp/member/memberForm.jsp";
+		
+		return "/jsp/book/bookinsert.jsp";
 	}
 
 }

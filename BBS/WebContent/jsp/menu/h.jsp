@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="../menu/mainmenu.jsp"></jsp:include>
-<hr>
-<div align="center">
-<div><h1>${name }님 로그아웃 되었습니다</h1></div>
-</div>
+<h5 align = "center">HRDKOREA Copyright@ 26016 All right reserved. Human Resources Development Service of Korea.</h5>
 </body>
 </html>

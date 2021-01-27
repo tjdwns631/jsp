@@ -6,25 +6,20 @@ import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.micol.board.command.LoginAction;
-import co.micol.board.command.LoginForm;
-import co.micol.board.command.LogoutAction;
-import co.micol.board.command.MainAction;
-import co.micol.board.command.MemberForm;
-import co.micol.board.command.MemberInsertAction;
-import co.micol.board.command.MemberListAction;
+import com.yedam.book.all.BookinsertAction;
+import com.yedam.book.all.BookinsertFormAction;
+import com.yedam.book.all.BooklistAction;
+import com.yedam.book.all.Main2Action;
+
 import co.micol.board.common.Action;
 
 @WebServlet("/FrontController")
-@MultipartConfig(maxFileSize = 1024 * 1024 * 2 // size of any uploaded file
-		, maxRequestSize = 1024 * 1024 * 10 // overall size of all uploaded files
-		, location = "d:/img", fileSizeThreshold = 1024)
+
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, Action> map = new HashMap<String, Action>();
@@ -36,16 +31,11 @@ public class FrontController extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		// 요청들을 정의함
-		map.put("/main.do", new MainAction());// 처음 들어오는 페이지 처리; index.jsp처리
-		map.put("/login.do", new LoginAction());// 로그인메뉴를 처리하는것
-		map.put("/loginForm.do", new LoginForm());// 로그인폼 호출
-		map.put("/memberList.do", new MemberListAction());// 회원전체 리스트 보기
-		map.put("/memberForm.do", new MemberForm());// 회원 가입 화면
-		map.put("/memberInsert.do", new MemberInsertAction());
-		map.put("/logout.do", new LogoutAction());
-//		map.put("/loginForm.do",new LoginForm());
-//		map.put("/loginForm.do",new LoginForm());
-
+		map.put("/main.do" , new Main2Action());
+		map.put("/bookinsertForm.do", new BookinsertFormAction());
+		map.put("/bookinsert.do", new BookinsertAction());
+		map.put("/booklist.do", new BooklistAction());
+		map.put("/rentlist.do" , new RentlistAction());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
